@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Rychlebský canicross 2026 – běh se psy v srdci Rychlebských hor pro radost, společný zážitek a podporu místního útulku."
+    />
+    <meta name="theme-color" content="#123c32" />
+    <title>Rychlebský canicross 2026</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- SVG ikony jsou vložené přímo v souboru, takže web funguje i bez internetu. -->
+    <svg aria-hidden="true" class="svg-sprite">
+      <symbol id="i-paw" viewBox="0 0 24 24">
+        <ellipse cx="7" cy="7" rx="2.2" ry="3.2" />
+        <ellipse cx="17" cy="7" rx="2.2" ry="3.2" />
+        <ellipse
+          cx="4.7"
+          cy="12.5"
+          rx="2"
+          ry="2.7"
+          transform="rotate(-24 4.7 12.5)"
+        />
+        <ellipse
+          cx="19.3"
+          cy="12.5"
+          rx="2"
+          ry="2.7"
+          transform="rotate(24 19.3 12.5)"
+        />
+        <path
+          d="M7.2 17.1c.8-2.8 2.5-4.2 4.8-4.2s4 1.4 4.8 4.2c.7 2.4-.7 4-2.8 3.3-1.4-.5-2.6-.5-4 0-2.1.7-3.5-.9-2.8-3.3Z"
+        />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.5S3 15 3 8.7C3 5.5 5.2 3.5 8 3.5c1.8 0 3.2.9 4 2.2 1-1.3 2.2-2.2 4-2.2 2.8 0 5 2 5 5.2 0 6.3-9 11.8-9 11.8Z"
+        />
+      </symbol>
+      <symbol id="i-mountain" viewBox="0 0 24 24">
+        <path
+          d="M2 20 9 7l3 5 2.5-4L22 20H2Zm7-9-2.1 4H9l1.1 2.3L12 14l-3-3Z"
+        />
+      </symbol>
+      <symbol id="i-people" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9" r="2.4" />
+        <path
+          d="M3 20c.3-4.1 2.2-6.2 6-6.2s5.7 2.1 6 6.2H3Zm11.5-.1c-.1-2-.7-3.6-1.8-4.8.8-.7 1.9-1 3.3-1 3.1 0 4.7 2 5 5.8h-6.5Z"
+        />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <path
+          d="M6 2h2v3H6V2Zm10 0h2v3h-2V2ZM4 4h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 7v9h16v-9H4Zm0-2h16V6H4v3Z"
+        />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path
+          d="M12 22s7-7.2 7-13A7 7 0 1 0 5 9c0 5.8 7 13 7 13Zm0-9.5A3.5 3.5 0 1 1 12 5a3.5 3.5 0 0 1 0 7.5Z"
+        />
+      </symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24">
+        <path d="M5 2h2v20H5V2Zm3 2h11l-2 4 2 4H8V4Z" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <path
+          d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm-1 3h2v4.6l3.2 1.9-1 1.7-4.2-2.5V7Z"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path
+          d="m13.2 5.2 1.4-1.4 8.2 8.2-8.2 8.2-1.4-1.4 5.8-5.8H2v-2h17l-5.8-5.8Z"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M3 5h18v2H3V5Zm0 6h18v2H3v-2Zm0 6h18v2H3v-2Z" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="m5.4 4 6.6 6.6L18.6 4 20 5.4 13.4 12l6.6 6.6-1.4 1.4-6.6-6.6L5.4 20 4 18.6l6.6-6.6L4 5.4 5.4 4Z"
+        />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Přeskočit na obsah</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Rychlebský canicross – domů">
+          <span class="brand-mark"
+            ><svg><use href="#i-paw"></use></svg
+          ></span>
+          <span>
+            <strong>Rychlebský</strong>
+            <span>canicross</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="sr-only">Otevřít menu</span>
+          <svg class="menu-open"><use href="#i-menu"></use></svg>
+          <svg class="menu-close"><use href="#i-close"></use></svg>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Hlavní navigace">
+          <a href="#o-akci">O akci</a>
+          <a href="#pro-koho">Pro koho</a>
+          <a href="#program">Program</a>
+          <a href="#faq">Časté otázky</a>
+          <a href="#partneri">Partneři</a>
+          <a href="#kontakt">Kontakt</a>
+          <a class="button button-small registration-link" href="#registrace"
+            >Přihlásit se</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-pattern" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Rychlebský canicross 2026</p>
+            <h1>Běžíme pro ty, kteří <em>domov ještě nemají.</em></h1>
+            <p class="hero-lead">
+              Běh se psy v srdci Rychlebských hor. Pro radost z pohybu, společný
+              zážitek a podporu místního útulku.
+            </p>
+
+            <div class="hero-meta" aria-label="Základní informace">
+              <span
+                ><svg><use href="#i-calendar"></use></svg
+                ><strong>3. 10. 2026</strong></span
+              >
+              <span
+                ><svg><use href="#i-pin"></use></svg
+                ><strong>Javorník u Jeseníku</strong></span
+              >
+            </div>
+
+            <div class="hero-actions">
+              <a
+                class="button button-accent registration-link"
+                href="#registrace"
+              >
+                Přihlásit se
+                <svg><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+
+            <p class="hero-note">
+              <span></span> Registrace bude probíhat přes jednoduchý online
+              formulář.
+            </p>
+          </div>
+
+          <div
+            class="hero-visual reveal"
+            aria-label="Ilustrace běžce se psem v Rychlebských horách"
+          >
+            <div class="event-sticker">
+              <span>03</span>
+              <strong>ŘÍJEN</strong>
+              <small>2026</small>
+            </div>
+            <svg
+              class="hero-illustration"
+              viewBox="0 0 720 720"
+              role="img"
+              aria-labelledby="hero-art-title"
+            >
+              <title id="hero-art-title">Běžec se psem na horské trase</title>
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#e3eee7" />
+                  <stop offset="100%" stop-color="#b8d0c2" />
+                </linearGradient>
+                <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2f6a55" />
+                  <stop offset="100%" stop-color="#123c32" />
+                </linearGradient>
+              </defs>
+              <rect width="720" height="720" rx="48" fill="url(#sky)" />
+              <circle cx="545" cy="140" r="66" fill="#f0b456" opacity=".95" />
+              <path
+                d="M0 395 150 230l115 126 110-175 190 218 95-88 60 61v348H0V395Z"
+                fill="#7da18d"
+              />
+              <path
+                d="M0 478 154 310l108 135 115-186 170 208 110-109 63 77v285H0V478Z"
+                fill="url(#hill)"
+              />
+              <path
+                d="M0 555c120-46 218-30 313 13 104 46 219 48 407-18v170H0V555Z"
+                fill="#e8efe9"
+              />
+              <path
+                d="M318 720c34-126 73-215 118-266 33-38 76-63 128-75-66 36-108 75-129 118-27 56-43 131-48 223h-69Z"
+                fill="#d66b42"
+              />
+              <!-- Běžec -->
+              <circle cx="388" cy="334" r="28" fill="#102e27" />
+              <path
+                d="m367 371 47-22 47 72-28 18-30-45-27 60-31-11 22-72Z"
+                fill="#102e27"
+              />
+              <path
+                d="m357 441-52 85 27 15 62-73 35 73 32-14-38-98-66 12Z"
+                fill="#102e27"
+              />
+              <path d="m410 376 76 18-5 25-81-8 10-35Z" fill="#102e27" />
+              <path d="m360 378-66 45 15 21 74-39-23-27Z" fill="#102e27" />
+              <!-- Vodítko -->
+              <path
+                d="M477 410c61 8 79 34 111 65"
+                fill="none"
+                stroke="#f0b456"
+                stroke-width="7"
+                stroke-linecap="round"
+              />
+              <!-- Pes -->
+              <path
+                d="M555 480c25-25 70-23 98 0l27 26-10 17-31-17-10 55-23-1-4-48-24 28-26-13 25-33-22-14Z"
+                fill="#102e27"
+              />
+              <circle cx="650" cy="470" r="25" fill="#102e27" />
+              <path d="m658 449 20-23 4 34-24-11Z" fill="#102e27" />
+              <path d="m633 451-14-28 30 17-16 11Z" fill="#102e27" />
+              <circle cx="658" cy="466" r="3" fill="#f3efe6" />
+              <!-- Stromy -->
+              <g fill="#123c32" opacity=".82">
+                <path d="m100 415 38-92 38 92h-24l30 68H94l30-68h-24Z" />
+                <path d="m594 370 28-70 28 70h-18l22 50h-64l22-50h-18Z" />
+                <path d="m38 476 31-77 31 77H80l25 56H33l25-56H38Z" />
+              </g>
+              <path
+                d="M72 90h220"
+                stroke="#123c32"
+                stroke-width="3"
+                opacity=".18"
+              />
+              <path
+                d="M72 108h160"
+                stroke="#123c32"
+                stroke-width="3"
+                opacity=".18"
+              />
+            </svg>
+            <div class="visual-caption">
+              <span class="caption-icon"
+                ><svg><use href="#i-heart"></use></svg
+              ></span>
+              <span
+                ><strong>Sport, který má smysl</strong>Výtěžek podpoří místní
+                útulek.</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="hero-wave" aria-hidden="true"></div>
+      </section>
+
+      <section class="section intro" id="o-akci">
+        <div class="container narrow center reveal">
+          <p class="eyebrow">Co je to za akci</p>
+          <h2>Jeden tým. Člověk a pes.</h2>
+          <p class="large-copy">
+            Rychlebský canicross je lokální akce v Javorníku v Rychlebských
+            horách pro všechny, kdo chtějí běžet se psem, zažít závodní
+            atmosféru a podpořit místní útulek.
+          </p>
+        </div>
+
+        <div class="container benefits-grid">
+          <article class="benefit-card reveal">
+            <span class="icon-wrap"
+              ><svg><use href="#i-paw"></use></svg
+            ></span>
+            <h3>Společný zážitek</h3>
+            <p>Běh, ve kterém člověk a pes tvoří jeden tým.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="icon-wrap"
+              ><svg><use href="#i-flag"></use></svg
+            ></span>
+            <h3>Závodní atmosféra</h3>
+            <p>Radost z pohybu, společná výzva a fandění v cíli.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="icon-wrap"
+              ><svg><use href="#i-heart"></use></svg
+            ></span>
+            <h3>Podpora útulku</h3>
+            <p>Veškerý zisk z akce věnujeme na pomoc opuštěným zvířatům.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="icon-wrap"
+              ><svg><use href="#i-mountain"></use></svg
+            ></span>
+            <h3>Rychlebské hory</h3>
+            <p>Krásné prostředí Javorníku a jeho bezprostředního okolí.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section audience" id="pro-koho">
+        <div class="container split">
+          <div class="audience-art reveal">
+            <div class="quote-card">
+              <svg><use href="#i-paw"></use></svg>
+              <blockquote>
+                Nejde jen o výkon. Jde o radost z pohybu, spolupráci a společný
+                zážitek.
+              </blockquote>
+            </div>
+            <div class="trail-map" aria-hidden="true">
+              <span class="route-dot route-start"></span>
+              <span class="route-line"></span>
+              <span class="route-dot route-end"></span>
+              <span class="tree tree-one">▲</span>
+              <span class="tree tree-two">▲</span>
+              <span class="tree tree-three">▲</span>
+            </div>
+          </div>
+
+          <div class="section-copy reveal">
+            <p class="eyebrow">Pro koho je akce</p>
+            <h2>Pro závodníky, začátečníky i fanoušky.</h2>
+            <p>
+              Pro všechny, kteří mají rádi psy, chtějí zažít spolupráci se svým
+              čtyřnohým parťákem při běhu, zasoutěžit si nebo přijít fandit a
+              svou účastí podpořit dobrou věc.
+            </p>
+            <ul class="check-list">
+              <li><span>01</span> Hobby běžci se psy</li>
+              <li><span>02</span> Zkušenější canicrossoví závodníci</li>
+              <li>
+                <span>03</span> Lidé, kteří si chtějí canicross poprvé vyzkoušet
+              </li>
+              <li><span>04</span> Rodiny, přátelé, doprovod a diváci</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section info-section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow">Základní informace</p>
+              <h2>Co už je dobré vědět</h2>
+            </div>
+            <p>
+              Další podrobnosti budeme postupně doplňovat. Hlavní údaje ale máte
+              na jednom místě.
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card info-card-featured reveal">
+              <svg><use href="#i-calendar"></use></svg>
+              <span>Kdy</span>
+              <strong>3. října 2026</strong>
+              <small>sobota</small>
+            </article>
+            <article class="info-card reveal">
+              <svg><use href="#i-pin"></use></svg>
+              <span>Kde</span>
+              <strong>Javorník u Jeseníku</strong>
+              <small>Rychlebské hory</small>
+            </article>
+            <article class="info-card reveal">
+              <svg><use href="#i-people"></use></svg>
+              <span>Pořádá</span>
+              <strong>Tým Rychlebský canicross</strong>
+              <small>Iveta Kalousková a spol.</small>
+            </article>
+            <article class="info-card reveal">
+              <svg><use href="#i-heart"></use></svg>
+              <span>Partner</span>
+              <strong>SFÉRA 790, z. s.</strong>
+              <small>administrativní partner</small>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section registration" id="registrace">
+        <div class="container registration-panel reveal">
+          <div class="registration-copy">
+            <p class="eyebrow eyebrow-light">Registrace</p>
+            <h2>Chceš být u toho?</h2>
+            <p>
+              Přihlas sebe a svého psa přes jednoduchý online formulář. Výtěžek
+              ze startovného podpoří místní útulek.
+            </p>
+            <div class="registration-status">
+              <span></span>
+              Registrační formulář se právě připravuje
+            </div>
+            <a
+              class="button button-accent registration-link"
+              href="#"
+              data-registration-trigger
+            >
+              Přihlásit se
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+          </div>
+          <div class="registration-details">
+            <div>
+              <span>Startovné</span>
+              <strong>Bude doplněno</strong>
+            </div>
+            <div>
+              <span>Uzávěrka registrace</span>
+              <strong>Bude doplněna</strong>
+            </div>
+            <div>
+              <span>Online formulář</span>
+              <strong>Google Forms</strong>
+            </div>
+          </div>
+        </div>
+
+        <!--
+        GOOGLE FORMULÁŘ:
+        Po získání odkazu stačí v souboru script.js doplnit hodnotu
+        GOOGLE_FORM_EMBED_URL. Formulář se pak zobrazí automaticky zde.
+      -->
+        <div class="container form-embed-shell" id="form-embed-shell" hidden>
+          <iframe
+            id="google-form-frame"
+            title="Registrace na Rychlebský canicross"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="section program" id="program">
+        <div class="container split split-program">
+          <div class="section-copy reveal">
+            <p class="eyebrow">Program dne</p>
+            <h2>Od registrace až po vyhlášení.</h2>
+            <p>
+              Přesný harmonogram zveřejníme po dokončení kategorií a trasy.
+              Základ dne bude vypadat takto:
+            </p>
+          </div>
+
+          <ol class="timeline reveal">
+            <li>
+              <span class="timeline-number">09:00</span>
+              <div>
+                <strong>Prezentace a registrace závodníků</strong>
+                <small
+                  >Registrace závodníků na místě probíhá od 9:00 do
+                  10:00.</small
+                >
+              </div>
+            </li>
+
+            <li>
+              <span class="timeline-number">11:00</span>
+              <div>
+                <strong>START závodu</strong>
+                <small
+                  >Závodníci vybíhají jednotlivě v intervalech po 15
+                  sekundách.</small
+                >
+              </div>
+            </li>
+
+            <li>
+              <span class="timeline-number">12:30</span>
+              <div>
+                <strong>Vyhlášení výsledků</strong>
+                <small>Společné zakončení závodu a vyhlášení výsledků.</small>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section charity">
+        <div class="container charity-panel reveal">
+          <span class="charity-icon"
+            ><svg><use href="#i-heart"></use></svg
+          ></span>
+          <p class="eyebrow">Charitativní přesah</p>
+          <h2>
+            Běžíme se psy. Běžíme pro radost. A běžíme pro ty, kteří ještě
+            nemají domov.
+          </h2>
+          <p>
+            Veškerý zisk z akce bude věnován na podporu místního útulku pro
+            opuštěná zvířata.
+          </p>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq">
+        <div class="container faq-layout">
+          <div class="section-copy reveal">
+            <p class="eyebrow">Časté otázky</p>
+            <h2>Než se postavíte na start</h2>
+            <p>
+              První ročník chceme udělat přístupný i pro lidi, kteří zatím
+              canicrossový závod neběželi.
+            </p>
+          </div>
+
+          <div class="accordion reveal">
+            <details open>
+              <summary>
+                Musím být zkušený canicrossový závodník?<span>+</span>
+              </summary>
+              <p>
+                Nemusíte. Akce je určená hobby běžcům, začátečníkům i
+                zkušenějším závodníkům.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Co když můj pes nikdy neběžel závod?<span>+</span>
+              </summary>
+              <p>
+                Nevadí. Důležité je znát svého psa, jeho limity a reakce na cizí
+                prostředí, lidi a ostatní psy. Podmínkou je dobře zvládnutelný
+                pes a zodpovědný přístup majitele.
+              </p>
+            </details>
+            <details>
+              <summary>Můžu přijít i bez závodění?<span>+</span></summary>
+              <p>
+                Ano. Přijďte fandit, užít si atmosféru a svou návštěvou podpořit
+                dobrou věc.
+              </p>
+            </details>
+            <details>
+              <summary>Kde najdu pravidla a propozice?<span>+</span></summary>
+              <p>
+                Samostatné propozice, pravidla, trasy a kategorie doplníme před
+                spuštěním registrace.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section partners" id="partneri">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow">Partneři</p>
+              <h2>Akce vzniká díky lidem z regionu.</h2>
+            </div>
+            <p>Finální loga a seznam partnerů doplníme po jejich potvrzení.</p>
+          </div>
+
+          <div class="partner-grid reveal">
+            <div class="partner-logo partner-main">
+              Město<br /><strong>Javorník</strong>
+            </div>
+            <div class="partner-logo">
+              <strong>SFÉRA 790</strong><br /><small>z. s.</small>
+            </div>
+            <div class="partner-logo">
+              Hotel<br /><strong>Pod Zámkem</strong>
+            </div>
+            <div class="partner-logo">
+              <strong>Rychlebský</strong><br />poklad
+            </div>
+            <div class="partner-logo partner-placeholder">Další partner</div>
+            <div class="partner-logo partner-placeholder">Vaše logo</div>
+          </div>
+          <p class="partner-note">
+            Pracovní výběr podle dosavadních podkladů — před zveřejněním nutno
+            potvrdit.
+          </p>
+        </div>
+      </section>
+
+      <section class="section final-cta">
+        <div class="container final-cta-inner reveal">
+          <div>
+            <p class="eyebrow eyebrow-light">3. října 2026 · Javorník</p>
+            <h2>Poběžíte s námi?</h2>
+          </div>
+          <a class="button button-accent registration-link" href="#registrace">
+            Přihlásit se
+            <svg><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="kontakt">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand brand-footer" href="#top">
+            <span class="brand-mark"
+              ><svg><use href="#i-paw"></use></svg
+            ></span>
+            <span><strong>Rychlebský</strong><span>canicross</span></span>
+          </a>
+          <p>
+            Lokální sportovní a komunitní akce v Javorníku, která spojuje pohyb,
+            psy a pomoc útulku.
+          </p>
+        </div>
+
+        <div>
+          <h3>Rychlé odkazy</h3>
+          <a href="#o-akci">O akci</a>
+          <a href="#program">Program</a>
+          <a href="#faq">Časté otázky</a>
+          <a href="#partneri">Partneři</a>
+        </div>
+
+        <div>
+          <h3>Kontakt</h3>
+          <p>
+            <strong>Iveta Kalousková</strong><br />Kontaktní e-mail bude doplněn
+          </p>
+          <p>Administrativní partner:<br /><strong>SFÉRA 790, z. s.</strong></p>
+        </div>
+
+        <div class="footer-date">
+          <span>03</span>
+          <strong>10</strong>
+          <small>2026</small>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© 2026 Rychlebský canicross</span>
+        <span>Pracovní prototyp homepage · verze 1.0</span>
+      </div>
+    </footer>
+
+    <dialog class="registration-dialog" id="registration-dialog">
+      <button class="dialog-close" aria-label="Zavřít dialog">
+        <svg><use href="#i-close"></use></svg>
+      </button>
+      <span class="dialog-icon"
+        ><svg><use href="#i-paw"></use></svg
+      ></span>
+      <h2>Registrace se připravuje</h2>
+      <p>
+        Jakmile bude hotový veřejný odkaz na Google Forms, tlačítka začnou
+        otevírat skutečný registrační formulář.
+      </p>
+      <p class="dialog-tech">
+        Odkaz se doplní na jednom místě v souboru <code>script.js</code>.
+      </p>
+      <button class="button button-dark dialog-confirm">Rozumím</button>
+    </dialog>
+  </body>
+</html>
