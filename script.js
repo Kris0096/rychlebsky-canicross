@@ -34,28 +34,12 @@ updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
 /* Registrace */
-const dialog = document.querySelector("#registration-dialog");
-const dialogClose = document.querySelector(".dialog-close");
-const dialogConfirm = document.querySelector(".dialog-confirm");
 const registrationLinks = document.querySelectorAll(".registration-link");
 
 registrationLinks.forEach((link) => {
-  if (REGISTRATION_URL) {
-    link.setAttribute("href", REGISTRATION_URL);
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener");
-  } else if (link.hasAttribute("data-registration-trigger")) {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      dialog?.showModal();
-    });
-  }
-});
-
-dialogClose?.addEventListener("click", () => dialog.close());
-dialogConfirm?.addEventListener("click", () => dialog.close());
-dialog?.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
+  link.setAttribute("href", REGISTRATION_URL);
+  link.setAttribute("target", "_blank");
+  link.setAttribute("rel", "noopener");
 });
 
 /* Automatické vložení Google Forms */
