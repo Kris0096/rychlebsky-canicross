@@ -405,10 +405,18 @@
 
           <div class="route-layout reveal">
             <div class="route-map">
-              <img
-                src="assets/images/trasa-mapy.png"
-                alt="Mapa trasy Rychlebského canicrossu 2026"
-              />
+              <a
+                class="lightbox-trigger"
+                href="assets/images/trasa-mapy.png"
+                target="_blank"
+                rel="noopener"
+                title="Klikni pro zvětšení mapy"
+              >
+                <img
+                  src="assets/images/trasa-mapy.png"
+                  alt="Mapa trasy Rychlebského canicrossu 2026"
+                />
+              </a>
             </div>
 
             <div class="route-info">
@@ -471,6 +479,7 @@
 
           <div class="practical-map">
             <a
+              class="lightbox-trigger"
               href="assets/images/zazemi-mapa.jpg"
               target="_blank"
               rel="noopener"
@@ -741,5 +750,17 @@
         <span>© 2026 Rychlebský canicross</span>
       </div>
     </footer>
+
+    <dialog class="image-lightbox" id="image-lightbox">
+      <button
+        class="image-lightbox-close"
+        type="button"
+        aria-label="Zavřít zvětšenou mapu"
+      >
+        <svg><use href="#i-close"></use></svg>
+      </button>
+
+      <img class="image-lightbox-image" src="" alt="" />
+    </dialog>
   </body>
 </html>

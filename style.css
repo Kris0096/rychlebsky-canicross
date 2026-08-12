@@ -1355,7 +1355,85 @@ details p {
   }
 }
 
-.practical-map a {
+.lightbox-trigger {
   display: block;
   cursor: zoom-in;
+}
+
+/* Lightbox map */
+.image-lightbox {
+  position: relative;
+  max-width: 92vw;
+  max-height: 92vh;
+  padding: 12px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--paper);
+  overflow: visible;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.image-lightbox::backdrop {
+  background: rgba(11, 41, 34, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.image-lightbox-image {
+  display: block;
+  max-width: calc(92vw - 24px);
+  max-height: calc(88vh - 24px);
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--forest-950);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-lightbox-close svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.image-lightbox-close:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 600px) {
+  .image-lightbox {
+    max-width: 96vw;
+    max-height: 92vh;
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .image-lightbox-image {
+    max-width: calc(96vw - 16px);
+    max-height: calc(88vh - 16px);
+  }
+
+  .image-lightbox-close {
+    top: -12px;
+    right: -8px;
+  }
 }

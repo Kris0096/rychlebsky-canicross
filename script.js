@@ -50,6 +50,72 @@ if (GOOGLE_FORM_EMBED_URL) {
   shell.hidden = false;
 }
 
+/* Lightbox pro mapy */
+const lightbox = document.querySelector("#image-lightbox");
+const lightboxImage = document.querySelector(".image-lightbox-image");
+const lightboxClose = document.querySelector(".image-lightbox-close");
+const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+
+let lightboxScrollPosition = 0;
+
+const openLightbox = (trigger) => {
+  if (!lightbox?.showModal || !lightboxImage) return;
+
+  const image = trigger.querySelector("img");
+
+  lightboxImage.src = trigger.href;
+  lightboxImage.alt = image?.alt || "Zvětšená mapa";
+
+  lightboxScrollPosition = window.scrollY;
+
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${lightboxScrollPosition}px`;
+  document.body.style.width = "100%";
+
+  lightbox.showModal();
+};
+
+const closeLightbox = () => {
+  lightbox.close();
+
+  const html = document.documentElement;
+  const previousScrollBehavior = html.style.scrollBehavior;
+
+  html.style.scrollBehavior = "auto";
+
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.width = "";
+
+  window.scrollTo(0, lightboxScrollPosition);
+
+  requestAnimationFrame(() => {
+    html.style.scrollBehavior = previousScrollBehavior;
+  });
+};
+
+lightboxTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    if (!lightbox?.showModal) return;
+
+    event.preventDefault();
+    openLightbox(trigger);
+  });
+});
+
+lightboxClose?.addEventListener("click", closeLightbox);
+
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+lightbox?.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeLightbox();
+});
+
 /* Jemné odhalování sekcí při scrollování */
 const revealItems = document.querySelectorAll(".reveal");
 
