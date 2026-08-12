@@ -1257,3 +1257,105 @@ details p {
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Trasa závodu */
+.route-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.route-map {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.route-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.route-info {
+  display: grid;
+  gap: 12px;
+}
+
+.route-info > div {
+  padding: 18px 20px;
+  background: var(--paper);
+  border-radius: 14px;
+}
+
+.route-info span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.route-info strong {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .route-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Praktické informace / zázemí závodu */
+.practical-layout {
+  margin-top: 32px;
+}
+
+.practical-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.practical-info > div {
+  padding: 20px;
+  background: var(--paper);
+  border-radius: 14px;
+}
+
+.practical-info span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.practical-info strong {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.practical-map {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.practical-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .practical-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+.practical-map a {
+  display: block;
+  cursor: zoom-in;
+}
