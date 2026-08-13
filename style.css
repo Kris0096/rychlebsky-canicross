@@ -1460,3 +1460,33 @@ summary {
 .charity-panel a:hover {
   color: var(--accent);
 }
+
+.header-date {
+  margin-left: 22px;
+  padding-left: 22px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.header-date span {
+  color: var(--accent);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Mobil */
+@media (max-width: 800px) {
+  .header-date {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+
+  .header-date span {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+}
