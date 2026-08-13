@@ -1437,3 +1437,13 @@ details p {
     right: -8px;
   }
 }
+
+body {
+  cursor: default;
+}
+
+a,
+button,
+summary {
+  cursor: pointer;
+}
