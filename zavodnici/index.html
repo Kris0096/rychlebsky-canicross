@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Závodníci | Rychlebský canicross 2026</title>
+
+    <link rel="stylesheet" href="../style.css?v=20260815-1" />
+    <script src="../script.js?v=20260815-1" defer></script>
+    <script src="zavodnici.js?v=20260815-1" defer></script>
+  </head>
+
+  <body>
+    <!-- SVG ikony jsou vložené přímo v souboru, takže web funguje i bez internetu. -->
+    <svg aria-hidden="true" class="svg-sprite">
+      <symbol id="i-paw" viewBox="0 0 24 24">
+        <ellipse cx="7" cy="7" rx="2.2" ry="3.2" />
+        <ellipse cx="17" cy="7" rx="2.2" ry="3.2" />
+        <ellipse
+          cx="4.7"
+          cy="12.5"
+          rx="2"
+          ry="2.7"
+          transform="rotate(-24 4.7 12.5)"
+        />
+        <ellipse
+          cx="19.3"
+          cy="12.5"
+          rx="2"
+          ry="2.7"
+          transform="rotate(24 19.3 12.5)"
+        />
+        <path
+          d="M7.2 17.1c.8-2.8 2.5-4.2 4.8-4.2s4 1.4 4.8 4.2c.7 2.4-.7 4-2.8 3.3-1.4-.5-2.6-.5-4 0-2.1.7-3.5-.9-2.8-3.3Z"
+        />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.5S3 15 3 8.7C3 5.5 5.2 3.5 8 3.5c1.8 0 3.2.9 4 2.2 1-1.3 2.2-2.2 4-2.2 2.8 0 5 2 5 5.2 0 6.3-9 11.8-9 11.8Z"
+        />
+      </symbol>
+      <symbol id="i-mountain" viewBox="0 0 24 24">
+        <path
+          d="M2 20 9 7l3 5 2.5-4L22 20H2Zm7-9-2.1 4H9l1.1 2.3L12 14l-3-3Z"
+        />
+      </symbol>
+      <symbol id="i-people" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9" r="2.4" />
+        <path
+          d="M3 20c.3-4.1 2.2-6.2 6-6.2s5.7 2.1 6 6.2H3Zm11.5-.1c-.1-2-.7-3.6-1.8-4.8.8-.7 1.9-1 3.3-1 3.1 0 4.7 2 5 5.8h-6.5Z"
+        />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <path
+          d="M6 2h2v3H6V2Zm10 0h2v3h-2V2ZM4 4h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 7v9h16v-9H4Zm0-2h16V6H4v3Z"
+        />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path
+          d="M12 22s7-7.2 7-13A7 7 0 1 0 5 9c0 5.8 7 13 7 13Zm0-9.5A3.5 3.5 0 1 1 12 5a3.5 3.5 0 0 1 0 7.5Z"
+        />
+      </symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24">
+        <path d="M5 2h2v20H5V2Zm3 2h11l-2 4 2 4H8V4Z" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <path
+          d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm-1 3h2v4.6l3.2 1.9-1 1.7-4.2-2.5V7Z"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path
+          d="m13.2 5.2 1.4-1.4 8.2 8.2-8.2 8.2-1.4-1.4 5.8-5.8H2v-2h17l-5.8-5.8Z"
+        />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M3 5h18v2H3V5Zm0 6h18v2H3v-2Zm0 6h18v2H3v-2Z" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="m5.4 4 6.6 6.6L18.6 4 20 5.4 13.4 12l6.6 6.6-1.4 1.4-6.6-6.6L5.4 20 4 18.6l6.6-6.6L4 5.4 5.4 4Z"
+        />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../" aria-label="Rychlebský canicross – domů">
+          <span class="brand-mark"
+            ><svg><use href="#i-paw"></use></svg
+          ></span>
+          <span>
+            <strong>Rychlebský</strong>
+            <span>canicross</span>
+          </span>
+        </a>
+
+        <div class="header-date">
+          <span>3. 10. 2026</span>
+        </div>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="sr-only">Otevřít menu</span>
+          <svg class="menu-open"><use href="#i-menu"></use></svg>
+          <svg class="menu-close"><use href="#i-close"></use></svg>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Hlavní navigace">
+          <a href="../#o-akci">O akci</a>
+          <a href="../#pro-koho">Pro koho</a>
+          <a href="../#informace">Informace</a>
+          <a href="../#program">Program</a>
+          <a href="../#faq">Časté otázky</a>
+          <a href="../#partneri">Partneři</a>
+          <a href="../#kontakt">Kontakt</a>
+          <a
+            class="button button-small registration-link"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScPytJPIUg3VCQW1lpwOnR9T6quI3ZLGrl5AvCq_BmGS0UXqQ/viewform"
+            target="_blank"
+            rel="noopener"
+            >Přihlásit se na závod</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <main>
+        <section class="section participants-page">
+          <div class="container">
+            <p class="eyebrow">Rychlebský canicross 2026</p>
+
+            <h1>Závodníci</h1>
+
+            <p class="participants-intro">
+              Aktuální seznam přihlášených závodníků a jejich čtyřnohých
+              parťáků.
+            </p>
+
+            <div class="participants-summary">
+              Přihlášeno:
+              <strong id="participants-count">–</strong>
+              / 50 závodníků
+            </div>
+
+            <div class="participants-table-wrap">
+              <table class="participants-table">
+                <thead>
+                  <tr>
+                    <th>Závodník</th>
+                    <th>Klub / tým / město</th>
+                    <th>Jméno psa</th>
+                    <th>Plemeno</th>
+                    <th>Kategorie</th>
+                  </tr>
+                </thead>
+
+                <tbody id="participants-list"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </main>
+  </body>
+</html>
