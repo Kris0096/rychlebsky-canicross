@@ -944,7 +944,7 @@ details p {
 
 .partner-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 }
 
@@ -962,23 +962,59 @@ details p {
   line-height: 1.25;
 }
 
-.partner-logo strong { font-size: 1.08rem; }
-
-.partner-main {
-  color: var(--white);
-  background: var(--forest-900);
+/* Loga partnerů */
+.partner-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  text-decoration: none;
 }
 
-.partner-placeholder {
-  color: #9a9f9c;
-  border-style: dashed;
+.partner-logo-image {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+  max-height: 78px;
+  object-fit: contain;
 }
 
-.partner-note {
-  margin: 22px 0 0;
+/* Široká loga, například SFÉRA 790 */
+.partner-logo-image-wide {
+  max-width: 185px;
+  max-height: 65px;
+}
+
+/* Vyšší / téměř čtvercová loga */
+.partner-logo-image-portrait {
+  max-width: 92px;
+  max-height: 92px;
+}
+
+.partner-logo a {
+  transition: transform 0.2s;
+}
+
+.partner-logo a:hover {
+  transform: scale(1.04);
+}
+
+.partner-logo-link-city {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.partner-logo-label {
+  color: var(--forest-900);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.2;
   text-align: center;
-  font-size: .82rem;
 }
+
 
 /* Final CTA */
 .final-cta {
