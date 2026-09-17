@@ -224,18 +224,45 @@ p { color: var(--muted); }
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: clamp(10px, 1.35vw, 18px);
 }
 
 .main-nav > a {
   color: rgba(255,255,255,.82);
-  font-size: .88rem;
+  font-size: .82rem;
   font-weight: 700;
   text-decoration: none;
   transition: color .2s;
 }
 
 .main-nav > a:hover { color: var(--white); }
+
+.main-nav > .nav-kids {
+  display: grid;
+  gap: 1px;
+  min-width: 112px;
+  padding: 7px 12px 8px;
+  color: var(--forest-950);
+  line-height: 1.05;
+  text-align: center;
+  background: #f7dcae;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 12px;
+}
+
+.main-nav > .nav-kids:hover {
+  color: var(--forest-950);
+  background: #f7c985;
+}
+
+.nav-kids small {
+  font-size: .58rem;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.nav-kids strong { font-size: .88rem; }
 
 .nav-toggle {
   display: none;
@@ -849,6 +876,99 @@ p { color: var(--muted); }
   font-size: 1.25rem;
 }
 
+.timeline-link {
+  text-decoration-color: rgba(214,107,66,.45);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.timeline-link:hover { color: var(--accent-dark); }
+
+/* Plyšákcross */
+.kids-page {
+  background: linear-gradient(180deg, #f2effb 0%, #eaf4f7 54%, #f7f4ec 100%);
+}
+
+.kids-hero {
+  position: relative;
+  padding: calc(var(--header-height) + 78px) 0 92px;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 83% 18%, rgba(240,180,86,.42), transparent 24%),
+    radial-gradient(circle at 14% 80%, rgba(127,203,216,.24), transparent 27%),
+    linear-gradient(135deg, #243d57 0%, #52517d 58%, #765a83 100%);
+}
+
+.kids-hero::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -130px;
+  width: 420px;
+  height: 420px;
+  border: 70px solid rgba(255,217,145,.16);
+  border-radius: 50%;
+}
+
+.kids-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  align-items: center;
+  gap: 72px;
+}
+
+.kids-hero h1 { margin-bottom: 22px; }
+.kids-lead { max-width: 620px; color: rgba(255,255,255,.82); font-size: clamp(1.2rem, 2vw, 1.55rem); }
+
+.kids-poster {
+  margin: 0;
+  padding: 12px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transform: rotate(1.5deg);
+}
+
+.kids-poster img { width: 100%; height: auto; border-radius: 14px; }
+
+.kids-info-grid { grid-template-columns: repeat(4, 1fr); }
+.kids-info-grid .info-card { min-height: 190px; }
+
+.kids-page .audience {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(240,180,86,.18) 0 70px, transparent 71px),
+    radial-gradient(circle at 92% 78%, rgba(214,107,66,.10) 0 95px, transparent 96px),
+    #e5eef8;
+}
+
+.kids-highlight {
+  color: var(--forest-950);
+  background: #f7dcae;
+}
+
+.kids-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.kids-panel {
+  padding: clamp(30px, 5vw, 54px);
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(82,81,125,.14);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 18px 55px rgba(11,41,34,.08);
+}
+
+.kids-panel h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+.kids-panel .check-list { margin-bottom: 0; }
+.kids-note { margin-top: 28px; padding: 24px 28px; border-radius: var(--radius-md); background: #f2eafa; }
+.kids-note strong { display: block; margin-bottom: 4px; color: var(--forest-900); font-size: 1.15rem; }
+
 .timeline small { color: var(--muted); font-size: .95rem; }
 
 /* Charity */
@@ -1172,6 +1292,7 @@ details p {
 
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
   .info-grid { grid-template-columns: repeat(2, 1fr); }
+  .kids-info-grid { grid-template-columns: repeat(2, 1fr); }
   .partner-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -1204,6 +1325,17 @@ details p {
     font-size: 1.1rem;
     border-bottom: 1px solid rgba(255,255,255,.08);
   }
+
+  .nav-open .main-nav > .nav-kids {
+    display: grid;
+    margin: 4px 0;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 0;
+  }
+
+  .kids-hero-grid { grid-template-columns: 1fr minmax(240px, 340px); gap: 38px; }
+  .kids-content-grid { grid-template-columns: 1fr; }
 
   .nav-open .menu-open { display: none; }
   .nav-open .menu-close { display: block; }
@@ -1263,6 +1395,11 @@ details p {
   .partner-grid {
     grid-template-columns: 1fr;
   }
+
+  .kids-hero { padding-top: calc(var(--header-height) + 52px); }
+  .kids-hero-grid { grid-template-columns: 1fr; }
+  .kids-poster { width: min(100%, 380px); justify-self: center; transform: none; }
+  .kids-info-grid { grid-template-columns: 1fr; }
 
   .benefit-card { min-height: auto; }
   .quote-card { width: calc(100% - 38px); padding: 28px; }
@@ -1422,7 +1559,11 @@ details p {
   height: auto;
   border-radius: 12px;
   object-fit: contain;
+  cursor: zoom-in;
+  will-change: transform;
 }
+
+.image-lightbox-image[style*="scale(1."] { cursor: zoom-out; }
 
 .image-lightbox-close {
   position: absolute;

@@ -43,9 +43,10 @@ registrationLinks.forEach((link) => {
 });
 
 /* Automatické vložení Google Forms */
-if (GOOGLE_FORM_EMBED_URL) {
-  const shell = document.querySelector("#form-embed-shell");
-  const frame = document.querySelector("#google-form-frame");
+const shell = document.querySelector("#form-embed-shell");
+const frame = document.querySelector("#google-form-frame");
+
+if (GOOGLE_FORM_EMBED_URL && shell && frame) {
   frame.src = GOOGLE_FORM_EMBED_URL;
   shell.hidden = false;
 }
@@ -57,6 +58,16 @@ const lightboxClose = document.querySelector(".image-lightbox-close");
 const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
 
 let lightboxScrollPosition = 0;
+let lightboxScale = 1;
+
+const resetLightboxZoom = () => {
+  lightboxScale = 1;
+
+  if (lightboxImage) {
+    lightboxImage.style.transform = "scale(1)";
+    lightboxImage.style.transformOrigin = "center center";
+  }
+};
 
 const openLightbox = (trigger) => {
   if (!lightbox?.showModal || !lightboxImage) return;
@@ -65,6 +76,7 @@ const openLightbox = (trigger) => {
 
   lightboxImage.src = trigger.href;
   lightboxImage.alt = image?.alt || "Zvětšená mapa";
+  resetLightboxZoom();
 
   lightboxScrollPosition = window.scrollY;
 
@@ -77,6 +89,7 @@ const openLightbox = (trigger) => {
 
 const closeLightbox = () => {
   lightbox.close();
+  resetLightboxZoom();
 
   const html = document.documentElement;
   const previousScrollBehavior = html.style.scrollBehavior;
@@ -104,6 +117,23 @@ lightboxTriggers.forEach((trigger) => {
 });
 
 lightboxClose?.addEventListener("click", closeLightbox);
+
+lightboxImage?.addEventListener(
+  "wheel",
+  (event) => {
+    event.preventDefault();
+
+    const rect = lightboxImage.getBoundingClientRect();
+    const originX = ((event.clientX - rect.left) / rect.width) * 100;
+    const originY = ((event.clientY - rect.top) / rect.height) * 100;
+    const zoomFactor = event.deltaY < 0 ? 1.15 : 1 / 1.15;
+
+    lightboxScale = Math.min(5, Math.max(1, lightboxScale * zoomFactor));
+    lightboxImage.style.transformOrigin = `${originX}% ${originY}%`;
+    lightboxImage.style.transform = `scale(${lightboxScale})`;
+  },
+  { passive: false }
+);
 
 lightbox?.addEventListener("click", (event) => {
   if (event.target === lightbox) {
