@@ -889,6 +889,10 @@ p { color: var(--muted); }
   background: linear-gradient(180deg, #f2effb 0%, #eaf4f7 54%, #f7f4ec 100%);
 }
 
+.kids-page .site-header.scrolled {
+  background: rgba(52, 56, 91, 0.96);
+}
+
 .kids-hero {
   position: relative;
   padding: calc(var(--header-height) + 78px) 0 92px;
@@ -1277,8 +1281,41 @@ details p {
 
 /* Responsive */
 @media (max-width: 1080px) {
-  .main-nav { gap: 16px; }
-  .main-nav > a:not(.button) { display: none; }
+  .nav-toggle { display: block; }
+
+  .main-nav {
+    position: fixed;
+    z-index: 999;
+    inset: var(--header-height) 0 auto;
+    display: grid;
+    align-content: start;
+    gap: 4px;
+    height: calc(100dvh - var(--header-height));
+    padding: 24px 20px 50px;
+    background: var(--forest-950);
+    transform: translateX(100%);
+    transition: transform .25s;
+  }
+
+  .nav-open .main-nav { transform: translateX(0); }
+
+  .nav-open .main-nav > a:not(.button) {
+    display: block;
+    padding: 15px 10px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-open .main-nav > .nav-kids {
+    display: grid;
+    margin: 4px 0;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 0;
+  }
+
+  .nav-open .menu-open { display: none; }
+  .nav-open .menu-close { display: block; }
 
   .hero {
     min-height: auto;
