@@ -54,7 +54,7 @@ const registrationLinks = document.querySelectorAll(".registration-link");
 registrationLinks.forEach((link) => {
   link.setAttribute("href", REGISTRATION_URL);
   link.setAttribute("target", "_blank");
-  link.setAttribute("rel", "noopener");
+  link.setAttribute("rel", "noopener noreferrer");
 });
 
 /* Automatické vložení Google Forms */

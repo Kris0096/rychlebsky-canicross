@@ -1016,6 +1016,24 @@ p { color: var(--muted); }
 .kids-hero h1 { margin-bottom: 22px; }
 .kids-lead { max-width: 620px; color: rgba(255,255,255,.82); font-size: clamp(1.2rem, 2vw, 1.55rem); }
 
+.kids-registration-actions {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.kids-registration-button {
+  max-width: 100%;
+  text-align: center;
+}
+
+.kids-registration-actions p {
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: .96rem;
+}
+
 .kids-poster {
   margin: 0;
   padding: 12px;
@@ -1553,6 +1571,15 @@ details p {
   .brand-mark { width: 41px; height: 41px; }
   .brand strong { font-size: .92rem; }
 
+  .kids-registration-button {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 18px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
   .hero-meta { display: grid; }
   .hero-meta span { width: fit-content; }
 
@@ -1573,6 +1600,7 @@ details p {
 
   .kids-hero { padding-top: calc(var(--header-height) + 52px); }
   .kids-hero-grid { grid-template-columns: 1fr; }
+  .kids-hero-grid > * { min-width: 0; }
   .kids-poster { width: min(100%, 380px); justify-self: center; transform: none; }
   .kids-info-grid { grid-template-columns: 1fr; }
 
