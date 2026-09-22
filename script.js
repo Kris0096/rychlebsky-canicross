@@ -14,6 +14,7 @@ const GOOGLE_FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLScPytJPI
 const body = document.body;
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".main-nav a");
+const navMore = document.querySelector(".nav-more");
 
 navToggle?.addEventListener("click", () => {
   const isOpen = body.classList.toggle("nav-open");
@@ -24,7 +25,21 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     body.classList.remove("nav-open");
     navToggle?.setAttribute("aria-expanded", "false");
+    navMore?.removeAttribute("open");
   });
+});
+
+document.addEventListener("click", (event) => {
+  if (navMore?.open && !navMore.contains(event.target)) {
+    navMore.removeAttribute("open");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navMore?.open) {
+    navMore.removeAttribute("open");
+    navMore.querySelector("summary")?.focus();
+  }
 });
 
 /* Změna vzhledu hlavičky po scrollování */
