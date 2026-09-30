@@ -229,7 +229,10 @@ p { color: var(--muted); }
 
 .main-nav {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
+  justify-content: space-between;
+  min-width: 0;
   margin-left: auto;
   gap: clamp(10px, 1.35vw, 18px);
 }
@@ -238,6 +241,7 @@ p { color: var(--muted); }
   color: rgba(255,255,255,.82);
   font-size: .82rem;
   font-weight: 700;
+  white-space: nowrap;
   text-decoration: none;
   transition: color .2s;
 }
@@ -351,6 +355,7 @@ p { color: var(--muted); }
 
 .nav-more-menu a {
   position: relative;
+  display: none;
   padding: 9px 11px;
   border-radius: 9px;
   color: var(--ink);
@@ -1404,6 +1409,32 @@ details p {
   .partner-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+@media (max-width: 1200px) and (min-width: 901px) {
+  .main-nav > .nav-collapse-contact { display: none; }
+  .nav-more,
+  .nav-more-menu > .nav-more-contact { display: block; }
+}
+
+@media (max-width: 1120px) and (min-width: 901px) {
+  .main-nav > .nav-collapse-partners { display: none; }
+  .nav-more-menu > .nav-more-partners { display: block; }
+}
+
+@media (max-width: 1050px) and (min-width: 901px) {
+  .main-nav > .nav-collapse-faq { display: none; }
+  .nav-more-menu > .nav-more-faq { display: block; }
+}
+
+@media (max-width: 990px) and (min-width: 901px) {
+  .main-nav > .nav-collapse-info { display: none; }
+  .nav-more-menu > .nav-more-info { display: block; }
+}
+
+@media (max-width: 940px) and (min-width: 901px) {
+  .main-nav > .nav-collapse-about { display: none; }
+  .nav-more-menu > .nav-more-about { display: block; }
+}
+
 @media (max-width: 1180px) and (min-width: 901px) {
   .header-inner { gap: 12px; }
 
@@ -1429,8 +1460,6 @@ details p {
     padding: 6px 9px 7px;
   }
   .nav-kids strong { font-size: .78rem; }
-  .main-nav > .nav-secondary { display: none; }
-  .nav-more { display: block; }
   .nav-more summary { font-size: .75rem; }
   .main-nav > .button-small { padding-inline: 12px; }
 
@@ -1443,7 +1472,6 @@ details p {
 
   .nav-toggle { display: block; }
   .header-branding { min-width: 0; }
-  .main-nav > .nav-secondary { display: block; }
   .nav-more { display: none; }
   .kids-page .nav-cta-long { display: inline; }
   .kids-page .nav-cta-short { display: none; }
