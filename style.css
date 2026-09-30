@@ -1230,6 +1230,11 @@ details p {
   max-height: 92px;
 }
 
+/* Světlá varianta loga pivovaru určená pro tmavé pozadí. */
+.partner-logo-image-dark {
+  filter: brightness(0) saturate(100%);
+}
+
 .partner-logo a {
   transition: transform 0.2s;
 }
@@ -1241,6 +1246,27 @@ details p {
 .partner-logo-link-city {
   flex-direction: column;
   gap: 8px;
+}
+
+.partner-logo-link-text {
+  flex-direction: column;
+  gap: 6px;
+  color: var(--forest-900);
+}
+
+.partner-text-kicker {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.partner-text-name {
+  max-width: 180px;
+  font-size: 1.05rem;
+  line-height: 1.2;
 }
 
 .partner-logo-label {
