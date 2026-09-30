@@ -505,9 +505,25 @@ p { color: var(--muted); }
   justify-self: end;
 }
 
-.hero-illustration {
+.hero-logo-panel {
+  display: grid;
+  place-items: center;
   width: 100%;
+  aspect-ratio: 1;
+  padding: 28px 32px 48px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f7f8f3 0%, #dfe9e2 100%);
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 48px;
   filter: drop-shadow(0 35px 60px rgba(0,0,0,.28));
+}
+
+.hero-main-logo {
+  display: block;
+  width: 94%;
+  height: 94%;
+  object-fit: contain;
+  transform: translateY(-2%);
 }
 
 .event-sticker {
@@ -547,7 +563,7 @@ p { color: var(--muted); }
 .visual-caption {
   position: absolute;
   right: -24px;
-  bottom: 28px;
+  bottom: 12px;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -708,46 +724,21 @@ p { color: var(--muted); }
 
 .trail-map {
   position: absolute;
-  inset: auto 38px 35px;
-  height: 195px;
-  color: var(--accent);
+  z-index: 1;
+  inset: auto -7% -3%;
+  height: 275px;
+  pointer-events: none;
 }
 
-.route-line {
-  position: absolute;
-  left: 11%;
-  right: 12%;
-  bottom: 42px;
-  height: 70px;
-  border-top: 7px dashed var(--accent);
-  border-radius: 50%;
-  transform: rotate(-4deg);
+.trail-forest-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: .5;
+  filter: saturate(.62) contrast(.94);
 }
-
-.route-dot {
-  position: absolute;
-  z-index: 2;
-  bottom: 33px;
-  width: 25px;
-  height: 25px;
-  border: 7px solid var(--white);
-  border-radius: 50%;
-  background: var(--accent-dark);
-}
-
-.route-start { left: 8%; }
-.route-end { right: 8%; bottom: 62px; }
-
-.tree {
-  position: absolute;
-  color: var(--sage-400);
-  font-size: 3.2rem;
-  line-height: 1;
-}
-
-.tree-one { left: 24%; bottom: 80px; }
-.tree-two { left: 49%; bottom: 36px; transform: scale(.7); }
-.tree-three { right: 25%; bottom: 101px; transform: scale(.8); }
 
 .section-copy > p:not(.eyebrow) {
   max-width: 610px;
@@ -1644,7 +1635,13 @@ details p {
   }
 
   .event-sticker span { font-size: 2.2rem; }
-  .visual-caption { bottom: 15px; padding: 14px; }
+  .hero-logo-panel {
+    padding: 22px 20px 42px;
+    border-radius: 34px;
+  }
+
+  .hero-main-logo { width: 96%; height: 96%; }
+  .visual-caption { bottom: 8px; padding: 14px; }
 
   .benefits-grid,
   .info-grid,
