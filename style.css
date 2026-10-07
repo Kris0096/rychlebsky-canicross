@@ -2488,3 +2488,56 @@ summary {
   height: 19px;
   fill: currentColor;
 }
+
+/* Sociální sítě pod novinkami */
+.news-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  max-width: 860px;
+  margin-top: 24px;
+  padding: 20px 28px;
+  border: 1px dashed rgba(16, 35, 30, .2);
+  border-radius: var(--radius-md);
+}
+
+.news-social p { margin: 0; color: var(--ink); }
+
+.news-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.news-social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  color: var(--forest-900);
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid rgba(16, 35, 30, .18);
+  border-radius: 999px;
+  background: var(--white);
+  transition: color .2s, background .2s, border-color .2s;
+}
+
+.news-social-links a:hover,
+.news-social-links a:focus-visible {
+  color: var(--forest-950);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.news-social-links svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .news-social { padding: 18px 20px; }
+}
