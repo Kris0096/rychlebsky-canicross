@@ -2399,3 +2399,7 @@ summary {
     padding: 22px;
   }
 }
+
+/* Nedokončili (DNF) v tabulce výsledků */
+.results-table .results-dnf td,
+.results-table .results-dnf strong { color: var(--muted); }

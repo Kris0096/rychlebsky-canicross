@@ -26,6 +26,12 @@ const RESULTS = [
   { bib: 16, name: "Pavlína Šimonová", dog: "Rozárka", club: "Hradec-Nová Ves", category: "Ženy – pes nad 20 kg", time: "1:27:30" },
 ];
 
+// Nedokončili (DNF) – v tabulce na konci své kategorie, bez pořadí.
+const DNF = [
+  { bib: 24, name: "Adéla Šíblová", dog: "Nikosz", club: "Mikulovice u Jeseníku", category: "Ženy – pes do 20 kg" },
+  { bib: 25, name: "Nikol Nepožitková", dog: "Eduard", club: "Mikulovice u Jeseníku", category: "Ženy – pes do 20 kg" },
+];
+
 const CATEGORIES = [
   "Muži – pes do 20 kg",
   "Muži – pes nad 20 kg",
@@ -94,19 +100,20 @@ const filterEl = document.querySelector("#results-filter");
 let activeCategory = "";
 
 const renderTable = () => {
-  const rows = overall.filter((r) => !activeCategory || r.category === activeCategory);
+  const inCategory = (r) => !activeCategory || r.category === activeCategory;
+  const rows = overall.filter(inCategory).concat(DNF.filter(inCategory));
   listEl.innerHTML = rows
     .map(
       (r) => `
-      <tr>
-        <td data-label="Pořadí">${placeBadge(r.place)}</td>
+      <tr${r.place ? "" : ' class="results-dnf"'}>
+        <td data-label="Pořadí">${r.place ? placeBadge(r.place) : ""}</td>
         <td data-label="Závodník"><strong>${escapeHTML(r.name)}</strong>${
           details(r) ? `<span class="results-details">${details(r)}</span>` : ""
         }</td>
         <td data-label="Kategorie">${escapeHTML(r.category)}</td>
-        <td data-label="V kategorii">${categoryPlace.get(r.bib)}.</td>
+        <td data-label="V kategorii">${r.place ? `${categoryPlace.get(r.bib)}.` : ""}</td>
         <td data-label="Číslo">${r.bib}</td>
-        <td data-label="Čas" class="results-time">${r.time}</td>
+        <td data-label="Čas" class="results-time">${r.time || "DNF"}</td>
       </tr>`
     )
     .join("");
