@@ -185,7 +185,7 @@ if ("IntersectionObserver" in window) {
 /* Rok ve footeru lze později automatizovat, zde je záměrně rok akce. */
 
 /* Zvýraznění aktuální sekce v navigaci podle rolování */
-const sectionLinks = [...document.querySelectorAll('.main-nav > a[href^="#"]')];
+const sectionLinks = [...document.querySelectorAll('.nav-links > a[href^="#"]')];
 const spySections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter((section) => section && !section.hidden);
