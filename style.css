@@ -2574,3 +2574,16 @@ summary {
   .news-item-social > span { display: none; }
   .social-profile { width: 100%; }
 }
+
+/* Charita – odkaz na poděkování útulku */
+.charity-panel > .charity-link {
+  margin-top: 18px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Závěrečný pruh – poznámka k dalšímu ročníku */
+.final-cta-note {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, .85);
+}
