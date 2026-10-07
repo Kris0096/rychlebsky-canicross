@@ -105,7 +105,7 @@ const renderTable = () => {
   listEl.innerHTML = rows
     .map(
       (r) => `
-      <tr${r.place ? "" : ' class="results-dnf"'}>
+      <tr>
         <td data-label="Pořadí">${r.place ? placeBadge(r.place) : ""}</td>
         <td data-label="Závodník"><strong>${escapeHTML(r.name)}</strong>${
           details(r) ? `<span class="results-details">${details(r)}</span>` : ""
