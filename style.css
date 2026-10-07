@@ -1704,10 +1704,11 @@ details p {
   border-radius: 20px;
 }
 
-.route-map img {
+.route-map iframe {
   display: block;
   width: 100%;
-  height: auto;
+  height: clamp(320px, 42vw, 480px);
+  border: 0;
 }
 
 .route-info {
