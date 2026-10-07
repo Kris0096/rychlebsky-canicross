@@ -2457,3 +2457,34 @@ summary {
     color: var(--accent);
   }
 }
+
+/* Sociální sítě v patičce */
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  transition: color .2s, background .2s, border-color .2s;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--forest-950);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.footer-social svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
