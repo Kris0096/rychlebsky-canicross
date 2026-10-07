@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://rychlebskycanicross.cz/" />
     <meta name="theme-color" content="#123c32" />
     <title>Rychlebský canicross 2026</title>
-    <link rel="stylesheet" href="style.css?v=20261007-5" />
+    <link rel="stylesheet" href="style.css?v=20261007-6" />
     <script src="script.js?v=20260922-1" defer></script>
   </head>
   <body id="top">
@@ -138,14 +138,12 @@
 
         <nav class="main-nav" id="main-nav" aria-label="Hlavní navigace">
           <a class="nav-collapse-about" href="#o-akci">O akci</a>
-          <a class="nav-collapse-info" href="#informace">Informace</a>
+          <a class="nav-collapse-info" href="#novinky">Novinky</a>
           <a class="nav-kids" href="/plysakcross/">
             <small>Pro děti</small>
             <strong>Plyšákcross</strong>
           </a>
-          <a href="#program">Program</a>
           <a href="galerie/">Galerie</a>
-          <a class="nav-secondary nav-collapse-faq" href="#faq">FAQ</a>
           <a class="nav-secondary nav-collapse-partners" href="#partneri"
             >Partneři</a
           >
@@ -156,8 +154,7 @@
             <summary>Více</summary>
             <div class="nav-more-menu">
               <a class="nav-more-about" href="#o-akci">O akci</a>
-              <a class="nav-more-info" href="#informace">Informace</a>
-              <a class="nav-more-faq" href="#faq">FAQ</a>
+              <a class="nav-more-info" href="#novinky">Novinky</a>
               <a class="nav-more-partners" href="#partneri">Partneři</a>
               <a class="nav-more-contact" href="#kontakt">Kontakt</a>
             </div>
@@ -231,6 +228,45 @@
           </div>
         </div>
         <div class="hero-wave" aria-hidden="true"></div>
+      </section>
+
+      <!-- NOVINKY: novou zprávu přidáš zkopírováním celého bloku <article>
+           a vložením NAHORU seznamu (nejnovější zpráva je první). -->
+      <section class="section news" id="novinky">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow">Novinky</p>
+              <h2>Co je nového</h2>
+            </div>
+          </div>
+
+          <div class="news-list">
+            <article class="news-item reveal">
+              <time datetime="2026-10-07">7. 10. 2026</time>
+              <div>
+                <h3>Zveřejnili jsme výsledky</h3>
+                <p>
+                  Kompletní výsledky hlavního závodu včetně vítězů všech
+                  kategorií najdete přímo tady na webu.
+                </p>
+                <a class="news-link" href="vysledky/">Výsledky závodu →</a>
+              </div>
+            </article>
+
+            <article class="news-item reveal">
+              <time datetime="2026-10-05">5. 10. 2026</time>
+              <div>
+                <h3>Útulku jsme poslali prvních 14 500 Kč</h3>
+                <p>
+                  Na účet Javornických čumáčků odešla první část výtěžku. Další
+                  peníze pošleme po vyúčtování akce a konečnou částku
+                  zveřejníme tady.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="section intro" id="o-akci">
@@ -330,7 +366,8 @@
         </div>
       </section>
 
-      <section class="section info-section" id="informace">
+      <!-- PŘED ZÁVODEM: pro další ročník odstraň atribut hidden. -->
+      <section class="section info-section" id="informace" hidden>
         <div class="container">
           <div class="section-heading reveal">
             <div>
@@ -431,7 +468,8 @@
         </div>
       </section>
 
-      <section class="section practical" id="prakticke-info">
+      <!-- PŘED ZÁVODEM: pro další ročník odstraň atribut hidden. -->
+      <section class="section practical" id="prakticke-info" hidden>
         <div class="container">
           <div class="section-heading reveal">
             <div>
@@ -571,7 +609,8 @@
         </div>
       </section>
 
-      <section class="section program" id="program">
+      <!-- PŘED ZÁVODEM: pro další ročník odstraň atribut hidden. -->
+      <section class="section program" id="program" hidden>
         <div class="container split split-program">
           <div class="section-copy reveal">
             <p class="eyebrow">Program dne</p>
@@ -658,7 +697,8 @@
         </div>
       </section>
 
-      <section class="section faq" id="faq">
+      <!-- PŘED ZÁVODEM: pro další ročník odstraň atribut hidden. -->
+      <section class="section faq" id="faq" hidden>
         <div class="container faq-layout">
           <div class="section-copy reveal">
             <p class="eyebrow">Časté otázky</p>
@@ -1110,8 +1150,7 @@
         <div>
           <h3>Rychlé odkazy</h3>
           <a href="#o-akci">O akci</a>
-          <a href="#program">Program</a>
-          <a href="#faq">Časté otázky</a>
+          <a href="#novinky">Novinky</a>
           <a href="#partneri">Partneři</a>
           <a href="zavodnici/">Startovka</a>
           <a href="vysledky/">Výsledky</a>

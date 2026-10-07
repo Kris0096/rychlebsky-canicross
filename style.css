@@ -2342,3 +2342,60 @@ summary {
 @media (max-width: 700px) {
   .gallery-block { padding: 24px; }
 }
+
+/* Novinky */
+.news { padding-top: 96px; }
+
+.news .section-heading { margin-bottom: 32px; }
+
+.news-list {
+  display: grid;
+  gap: 16px;
+  max-width: 860px;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  padding: 26px 28px;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(11, 41, 34, .07);
+}
+
+.news-item time {
+  color: var(--accent-dark);
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.news-item h3 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  letter-spacing: -.01em;
+}
+
+.news-item p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--forest-700);
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .news { padding-top: 64px; }
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px;
+  }
+}
