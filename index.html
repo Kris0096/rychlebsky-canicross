@@ -17,17 +17,41 @@
     <meta property="og:url" content="https://rychlebskycanicross.cz/" />
     <meta name="theme-color" content="#123c32" />
     <title>Rychlebský canicross 2026</title>
-    <link rel="stylesheet" href="style.css?v=20260930-5" />
+    <link rel="stylesheet" href="style.css?v=20261007-5" />
     <script src="script.js?v=20260922-1" defer></script>
   </head>
   <body id="top">
     <!-- SVG ikony jsou vložené přímo v souboru, takže web funguje i bez internetu. -->
     <svg aria-hidden="true" class="svg-sprite">
       <symbol id="i-paw" viewBox="0 0 24 24">
-        <ellipse cx="6.1" cy="8.1" rx="2" ry="2.8" transform="rotate(-24 6.1 8.1)" />
-        <ellipse cx="10.1" cy="5.7" rx="2" ry="2.9" transform="rotate(-8 10.1 5.7)" />
-        <ellipse cx="14.1" cy="5.7" rx="2" ry="2.9" transform="rotate(8 14.1 5.7)" />
-        <ellipse cx="18" cy="8.1" rx="2" ry="2.8" transform="rotate(24 18 8.1)" />
+        <ellipse
+          cx="6.1"
+          cy="8.1"
+          rx="2"
+          ry="2.8"
+          transform="rotate(-24 6.1 8.1)"
+        />
+        <ellipse
+          cx="10.1"
+          cy="5.7"
+          rx="2"
+          ry="2.9"
+          transform="rotate(-8 10.1 5.7)"
+        />
+        <ellipse
+          cx="14.1"
+          cy="5.7"
+          rx="2"
+          ry="2.9"
+          transform="rotate(8 14.1 5.7)"
+        />
+        <ellipse
+          cx="18"
+          cy="8.1"
+          rx="2"
+          ry="2.8"
+          transform="rotate(24 18 8.1)"
+        />
         <path
           d="M12.1 10.4c-3.7 0-6.8 3.4-6.8 6.7 0 2.1 1.5 3.5 3.5 3.5 1.2 0 2.1-.7 3.3-.7s2.1.7 3.3.7c2 0 3.5-1.4 3.5-3.5 0-3.3-3.1-6.7-6.8-6.7Z"
         />
@@ -120,10 +144,14 @@
             <strong>Plyšákcross</strong>
           </a>
           <a href="#program">Program</a>
-          <a href="zavodnici/">Startovka</a>
+          <a href="galerie/">Galerie</a>
           <a class="nav-secondary nav-collapse-faq" href="#faq">FAQ</a>
-          <a class="nav-secondary nav-collapse-partners" href="#partneri">Partneři</a>
-          <a class="nav-secondary nav-collapse-contact" href="#kontakt">Kontakt</a>
+          <a class="nav-secondary nav-collapse-partners" href="#partneri"
+            >Partneři</a
+          >
+          <a class="nav-secondary nav-collapse-contact" href="#kontakt"
+            >Kontakt</a
+          >
           <details class="nav-more">
             <summary>Více</summary>
             <div class="nav-more-menu">
@@ -134,13 +162,7 @@
               <a class="nav-more-contact" href="#kontakt">Kontakt</a>
             </div>
           </details>
-          <a
-            class="button button-small registration-link"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScPytJPIUg3VCQW1lpwOnR9T6quI3ZLGrl5AvCq_BmGS0UXqQ/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Přihlásit se na závod</a
-          >
+          <a class="button button-small" href="vysledky/">Výsledky</a>
         </nav>
       </div>
     </header>
@@ -151,10 +173,11 @@
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <p class="eyebrow">Rychlebský canicross 2026</p>
-            <h1>Běžíme pro ty, kteří <em>domov ještě nemají.</em></h1>
+            <h1>Děkujeme! <em>První ročník je za námi.</em></h1>
             <p class="hero-lead">
-              Běh se psy v srdci Rychlebských hor. Pro radost z pohybu, společný
-              zážitek a podporu místního útulku.
+              Na trať 5,2 km se vydalo 25 závodníků se svými psy a na
+              Plyšákcrossu se proběhly i děti se svými plyšáky. Děkujeme, že
+              jste běželi pro ty, kteří domov ještě nemají.
             </p>
 
             <div class="hero-meta" aria-label="Základní informace">
@@ -169,15 +192,11 @@
             </div>
 
             <div class="hero-actions">
-              <a
-                class="button button-accent registration-link"
-                href="https://docs.google.com/forms/d/e/1FAIpQLScPytJPIUg3VCQW1lpwOnR9T6quI3ZLGrl5AvCq_BmGS0UXqQ/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Přihlásit se na závod
+              <a class="button button-accent" href="vysledky/">
+                Výsledky závodu
                 <svg><use href="#i-arrow"></use></svg>
               </a>
+              <a class="button" href="galerie/">Galerie</a>
             </div>
           </div>
 
@@ -458,7 +477,45 @@
         </div>
       </section>
 
-      <section class="section registration" id="registrace">
+      <!-- PO ZÁVODĚ: shrnutí ročníku. Před dalším ročníkem tuto sekci skryj
+           (atribut hidden) a odkryj sekci registrace níže. -->
+      <section class="section registration" id="ohlednuti">
+        <div class="container registration-panel reveal">
+          <div class="registration-copy">
+            <p class="eyebrow eyebrow-light">Ohlédnutí za ročníkem 2026</p>
+            <h2>Výsledky jsou venku</h2>
+            <p>
+              Nejrychlejší dvojicí dne byl Michal Verner s Espressem (18:38).
+              Podívejte se na kompletní pořadí všech kategorií a brzy i na
+              fotky a videa z akce.
+            </p>
+            <div class="registration-actions">
+              <a class="button button-accent" href="vysledky/">
+                Výsledky závodu
+                <svg><use href="#i-arrow"></use></svg>
+              </a>
+              <a class="button" href="galerie/">Galerie</a>
+            </div>
+          </div>
+          <div class="registration-details">
+            <div>
+              <span>Na startu</span>
+              <strong>25 závodníků</strong>
+            </div>
+            <div>
+              <span>V cíli</span>
+              <strong>23 závodníků</strong>
+            </div>
+            <div>
+              <span>Trať</span>
+              <strong>5,2 km</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PŘED ZÁVODEM: registrace. Pro další ročník odstraň atribut hidden. -->
+      <section class="section registration" id="registrace" hidden>
         <div class="container registration-panel reveal">
           <div class="registration-copy">
             <p class="eyebrow eyebrow-light">
@@ -593,6 +650,10 @@
               Javornických čumáčků
             </a>
             a jejich péče o zvířata v nouzi.
+          </p>
+          <p class="charity-amount">
+            Útulku jsme už poslali <strong>14 500 Kč</strong>. Přesnou částku,
+            kterou jsme díky vám a vaší účasti vybrali, zveřejníme zde.
           </p>
         </div>
       </section>
@@ -782,7 +843,7 @@
             </div>
 
             <!-- Mixit -->
-            <div class="partner-logo">
+            <!-- <div class="partner-logo">
               <a
                 class="partner-logo-link"
                 href="https://www.mixit.cz/"
@@ -798,7 +859,7 @@
                   decoding="async"
                 />
               </a>
-            </div>
+            </div>-->
 
             <!-- ZUŠ Javorník -->
             <div class="partner-logo">
@@ -997,7 +1058,22 @@
         </div>
       </section>
 
+      <!-- PO ZÁVODĚ -->
       <section class="section final-cta">
+        <div class="container final-cta-inner reveal">
+          <div>
+            <p class="eyebrow eyebrow-light">3. října 2026 · Javorník</p>
+            <h2>Děkujeme a uvidíme se příště!</h2>
+          </div>
+          <a class="button" href="galerie/">
+            Prohlédnout galerii
+            <svg><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- PŘED ZÁVODEM: pro další ročník odstraň atribut hidden. -->
+      <section class="section final-cta" hidden>
         <div class="container final-cta-inner reveal">
           <div>
             <p class="eyebrow eyebrow-light">3. října 2026 · Javorník</p>
@@ -1037,6 +1113,9 @@
           <a href="#program">Program</a>
           <a href="#faq">Časté otázky</a>
           <a href="#partneri">Partneři</a>
+          <a href="zavodnici/">Startovka</a>
+          <a href="vysledky/">Výsledky</a>
+          <a href="galerie/">Galerie</a>
         </div>
 
         <div>
