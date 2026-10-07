@@ -2489,55 +2489,88 @@ summary {
   fill: currentColor;
 }
 
-/* Sociální sítě pod novinkami */
-.news-social {
+/* Sociální sítě jako poslední novinka */
+.social-profiles {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px 24px;
-  max-width: 860px;
-  margin-top: 24px;
-  padding: 20px 28px;
-  border: 1px dashed rgba(16, 35, 30, .2);
-  border-radius: var(--radius-md);
+  gap: 12px;
+  margin-top: 16px;
 }
 
-.news-social p { margin: 0; color: var(--ink); }
-
-.news-social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.news-social-links a {
+.social-profile {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 10px 18px;
-  color: var(--forest-900);
-  font-weight: 800;
+  gap: 14px;
+  padding: 10px 20px 10px 10px;
+  color: var(--ink);
   text-decoration: none;
-  border: 1px solid rgba(16, 35, 30, .18);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--white);
-  transition: color .2s, background .2s, border-color .2s;
+  background: var(--paper);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
 }
 
-.news-social-links a:hover,
-.news-social-links a:focus-visible {
-  color: var(--forest-950);
-  background: var(--accent);
+.social-profile:hover,
+.social-profile:focus-visible {
   border-color: var(--accent);
+  box-shadow: 0 8px 22px rgba(11, 41, 34, .1);
+  transform: translateY(-2px);
 }
 
-.news-social-links svg {
-  width: 18px;
-  height: 18px;
+.social-avatar {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.social-avatar img {
+  display: block;
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.social-badge {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+}
+
+.social-badge svg {
+  width: 13px;
+  height: 13px;
   fill: currentColor;
 }
 
+.social-badge-facebook { background: #1877f2; }
+.social-badge-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.social-name {
+  display: grid;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.social-name strong { font-size: 1rem; }
+
+.social-name small {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
 @media (max-width: 600px) {
-  .news-social { padding: 18px 20px; }
+  .news-item-social > span { display: none; }
+  .social-profile { width: 100%; }
 }
