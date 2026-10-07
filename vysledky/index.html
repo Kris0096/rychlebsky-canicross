@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Aktuální startovní listina Rychlebského canicrossu 2026."
+      content="Výsledky Rychlebského canicrossu 2026 – celkové pořadí, vítězové kategorií a časy."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="cs_CZ" />
-    <meta property="og:title" content="Startovka | Rychlebský canicross 2026" />
+    <meta property="og:title" content="Výsledky | Rychlebský canicross 2026" />
     <meta
       property="og:description"
-      content="Aktuální seznam přihlášených závodníků a jejich čtyřnohých parťáků."
+      content="Celkové pořadí, vítězové kategorií a časy prvního ročníku."
     />
     <meta
       property="og:url"
-      content="https://rychlebskycanicross.cz/zavodnici/"
+      content="https://rychlebskycanicross.cz/vysledky/"
     />
 
-    <title>Startovka | Rychlebský canicross 2026</title>
+    <title>Výsledky | Rychlebský canicross 2026</title>
 
     <link rel="stylesheet" href="../style.css?v=20261007-5" />
     <script src="../script.js?v=20260922-1" defer></script>
-    <script src="zavodnici.js?v=20260815-1" defer></script>
+    <script src="vysledky.js?v=20261007-2" defer></script>
   </head>
 
   <body class="subpage">
@@ -138,47 +138,68 @@
               <a class="nav-more-contact" href="../#kontakt">Kontakt</a>
             </div>
           </details>
-          <a class="button button-small" href="../vysledky/">Výsledky</a>
+          <a class="button button-small" href="./" aria-current="page">Výsledky</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="section participants-page">
+      <section class="section participants-page results-page">
         <div class="container">
-          <p class="eyebrow">Rychlebský canicross 2026</p>
+          <p class="eyebrow">Rychlebský canicross 2026 · sobota 3. 10. 2026</p>
 
-          <h1>Startovka</h1>
+          <h1>Výsledky</h1>
 
           <p class="participants-intro">
-            Aktuální seznam přihlášených závodníků a jejich čtyřnohých parťáků.
+            Děkujeme všem závodníkům a jejich čtyřnohým parťákům za první ročník.
           </p>
 
-          <div class="participants-summary">
-            Přihlášeno:
-            <strong id="participants-count">–</strong>
-            / 50 závodníků
+          <div class="results-stats">
+            <div><strong>23</strong><span>v cíli</span></div>
+            <div><strong>2</strong><span>nedokončily</span></div>
+            <div><strong>4</strong><span>kategorie</span></div>
+            <div><strong>5,2&nbsp;km</strong><span>trať</span></div>
           </div>
+
+          <h2 class="results-heading">Vítězové kategorií</h2>
+          <div class="results-winners" id="results-winners"></div>
+
+          <h2 class="results-heading">Celkové pořadí</h2>
+
+          <div class="results-filter" role="group" aria-label="Filtrovat podle kategorie" id="results-filter"></div>
 
           <div class="participants-table-wrap">
-            <table class="participants-table">
+            <table class="participants-table results-table">
               <thead>
                 <tr>
+                  <th>Pořadí</th>
                   <th>Závodník</th>
-                  <th>Klub / tým / město</th>
-                  <th>Jméno psa</th>
-                  <th>Plemeno</th>
                   <th>Kategorie</th>
+                  <th>V kategorii</th>
+                  <th>Číslo</th>
+                  <th>Čas</th>
                 </tr>
               </thead>
-
-              <tbody id="participants-list">
-                <tr>
-                  <td colspan="5">Načítám startovní listinu…</td>
-                </tr>
-              </tbody>
+              <tbody id="results-list"></tbody>
             </table>
           </div>
+
+          <div class="results-notes">
+            <div>
+              <h3>Nedokončily (DNF)</h3>
+              <p>Adéla Šíblová (č. 24) · Nikol Nepožitková (č. 25)</p>
+            </div>
+            <div>
+              <h3>Nestartovaly (DNS)</h3>
+              <p>Nikola Faksová · Anna Grusmanová · Kristýna Křivánková · Šarka Michálková · Anna Rotterová</p>
+            </div>
+          </div>
+
+          <p class="results-source">
+            Časy jsme měřili třemi způsoby, a to aplikací Webscorer, ručním zápisem a videozáznamem startu i cíle. Pokud ve výsledcích
+            najdete chybu, napište nám na
+            <a href="mailto:rychlebskycanicross@gmail.com">rychlebskycanicross@gmail.com</a>.
+          </p>
         </div>
       </section>
     </main>
@@ -204,8 +225,8 @@
           <a href="../#program">Program</a>
           <a href="../#faq">Časté otázky</a>
           <a href="../#partneri">Partneři</a>
-          <a href="./">Startovka</a>
-          <a href="../vysledky/">Výsledky</a>
+          <a href="../zavodnici/">Startovka</a>
+          <a href="./">Výsledky</a>
           <a href="../galerie/">Galerie</a>
         </div>
 

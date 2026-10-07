@@ -1923,9 +1923,17 @@ summary {
 }
 
 /* Stránka závodníků */
+.subpage .site-header {
+  background: rgba(11, 41, 34, .96);
+}
+
 .participants-page {
   min-height: 70vh;
-  padding-top: 72px;
+  padding-top: calc(var(--header-height) + 56px);
+}
+
+.participants-page h1 {
+  color: var(--forest-900);
 }
 
 .participants-intro {
@@ -2058,4 +2066,279 @@ summary {
   .participants-table td:nth-child(5)::before {
     content: "Kategorie";
   }
+}
+
+/* ===== Výsledky ===== */
+.results-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.results-stats div {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: var(--forest-950);
+  color: white;
+}
+
+.results-stats strong {
+  display: block;
+  color: var(--accent);
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.results-stats span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.results-heading {
+  margin: 0 0 18px;
+  color: var(--forest-900);
+}
+
+.results-winners {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.results-winner-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--paper);
+  border-top: 5px solid var(--accent);
+  box-shadow: 0 10px 30px rgba(11, 41, 34, 0.08);
+}
+
+.results-winner-card small {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--forest-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.results-winner-card strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+.results-details {
+  display: block;
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.results-winner-time {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent-dark);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-winner-card ol {
+  margin: 14px 0 0;
+  padding: 12px 0 0 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.results-winner-card li span {
+  float: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.results-filter button {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: white;
+  color: var(--forest-900);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.results-filter button[aria-pressed="true"] {
+  border-color: var(--forest-950);
+  background: var(--forest-950);
+  color: white;
+}
+
+.results-table {
+  min-width: 720px;
+}
+
+.results-table td {
+  font-variant-numeric: tabular-nums;
+}
+
+.results-time {
+  font-weight: 800;
+  color: var(--forest-900);
+}
+
+.results-place {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.results-place-1 { background: #f0b456; color: var(--forest-950); }
+.results-place-2 { background: #d9dcd8; color: var(--forest-950); }
+.results-place-3 { background: #e3a77c; color: var(--forest-950); }
+
+.results-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.results-notes > div {
+  padding: 20px 22px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+}
+
+.results-notes h3 {
+  margin: 0 0 6px;
+  color: var(--forest-900);
+  font-size: 1rem;
+}
+
+.results-notes p {
+  margin: 0;
+}
+
+.results-source {
+  margin-top: 28px;
+}
+
+.results-source a {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .results-winners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .results-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results-winners,
+  .results-notes { grid-template-columns: 1fr; }
+  .results-table { min-width: 0; }
+  .participants-table.results-table td::before { content: attr(data-label); }
+}
+
+.results-page h1 { color: var(--forest-900); }
+
+@media (max-width: 700px) {
+  .participants-table.results-table tr {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "place name time"
+      "place cat  time";
+    column-gap: 14px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 14px 16px;
+  }
+  .participants-table.results-table td {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+  .participants-table.results-table td::before { content: none; }
+  .results-table td:nth-child(1) { grid-area: place; }
+  .results-table td:nth-child(2) { grid-area: name; }
+  .results-table td:nth-child(3) { grid-area: cat; color: var(--muted); font-size: 0.85rem; }
+  .results-table td:nth-child(6) { grid-area: time; font-size: 1.1rem; }
+  .results-table td:nth-child(4),
+  .results-table td:nth-child(5) { display: none; }
+  .results-place { min-width: 34px; width: 34px; }
+}
+
+/* Režim po závodě */
+[hidden] { display: none !important; }
+
+.hero-actions,
+.registration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.registration-actions { margin-top: 30px; }
+
+.charity-panel > p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.charity-panel > .charity-amount {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-size: 1rem;
+}
+
+.charity-amount strong { color: var(--accent-dark); }
+
+/* Galerie */
+.gallery-block {
+  max-width: 720px;
+  margin-bottom: 32px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--sage-100);
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.gallery-block h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.gallery-block p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.gallery-note {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+@media (max-width: 700px) {
+  .gallery-block { padding: 24px; }
 }
