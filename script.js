@@ -183,3 +183,30 @@ if ("IntersectionObserver" in window) {
 }
 
 /* Rok ve footeru lze později automatizovat, zde je záměrně rok akce. */
+
+/* Zvýraznění aktuální sekce v navigaci podle rolování */
+const sectionLinks = [...document.querySelectorAll('.main-nav > a[href^="#"]')];
+const spySections = sectionLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter((section) => section && !section.hidden);
+
+// Úvod nemá v menu odkaz – když je vidět, zvýraznění zmizí.
+const heroSection = document.querySelector(".hero");
+if (heroSection) spySections.push(heroSection);
+
+if ("IntersectionObserver" in window && spySections.length) {
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = `#${entry.target.id}`;
+        sectionLinks.forEach((link) =>
+          link.classList.toggle("is-active", link.getAttribute("href") === id)
+        );
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+
+  spySections.forEach((section) => spy.observe(section));
+}

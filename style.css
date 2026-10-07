@@ -2400,3 +2400,49 @@ summary {
   }
 }
 
+
+/* Navigace – odkazy pohromadě, oranžové podtržení */
+@media (min-width: 901px) {
+  .main-nav {
+    justify-content: flex-end;
+    gap: clamp(14px, 1.8vw, 28px);
+  }
+
+  .main-nav > .button-small { margin-left: clamp(4px, 1vw, 14px); }
+
+  .main-nav > a:not(.button):not(.nav-kids) {
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .main-nav > a:not(.button):not(.nav-kids)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform .25s ease;
+  }
+
+  .main-nav > a:not(.button):not(.nav-kids):hover::after,
+  .main-nav > a.is-active:not(.button):not(.nav-kids)::after,
+  .main-nav > a[aria-current="page"]:not(.button):not(.nav-kids)::after {
+    transform: scaleX(1);
+  }
+
+  .main-nav > a.is-active,
+  .main-nav > a[aria-current="page"]:not(.button) {
+    color: var(--white);
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-open .main-nav > a[aria-current="page"]:not(.button),
+  .nav-open .main-nav > a.is-active {
+    color: var(--accent);
+  }
+}
