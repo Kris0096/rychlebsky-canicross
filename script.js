@@ -66,11 +66,18 @@ if (GOOGLE_FORM_EMBED_URL && shell && frame) {
   shell.hidden = false;
 }
 
-/* Lightbox pro mapy */
+/* Lightbox pro mapy a fotogalerii */
 const lightbox = document.querySelector("#image-lightbox");
 const lightboxImage = document.querySelector(".image-lightbox-image");
 const lightboxClose = document.querySelector(".image-lightbox-close");
 const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+const lightboxPrev = document.querySelector(".image-lightbox-prev");
+const lightboxNext = document.querySelector(".image-lightbox-next");
+const lightboxCount = document.querySelector(".image-lightbox-count");
+const lightboxDownload = document.querySelector(".image-lightbox-download");
+
+let lightboxGroup = [];
+let lightboxIndex = 0;
 
 let lightboxScrollPosition = 0;
 let lightboxScale = 1;
@@ -84,14 +91,53 @@ const resetLightboxZoom = () => {
   }
 };
 
-const openLightbox = (trigger) => {
-  if (!lightbox?.showModal || !lightboxImage) return;
+const showLightboxImage = (index) => {
+  const trigger = lightboxGroup[index];
+  if (!trigger) return;
 
   const image = trigger.querySelector("img");
 
+  lightboxIndex = index;
   lightboxImage.src = trigger.href;
-  lightboxImage.alt = image?.alt || "Zvětšená mapa";
+  lightboxImage.alt = image?.alt || "Zvětšený obrázek";
   resetLightboxZoom();
+
+  if (lightboxCount) {
+    lightboxCount.textContent = `${index + 1} / ${lightboxGroup.length}`;
+  }
+
+  if (lightboxDownload) lightboxDownload.href = trigger.href;
+
+  // Načte předem sousední fotky, aby se listování nezasekávalo.
+  [index - 1, index + 1].forEach((i) => {
+    const neighbour = lightboxGroup[i];
+    if (neighbour) new Image().src = neighbour.href;
+  });
+};
+
+const stepLightbox = (step) => {
+  if (lightboxGroup.length < 2) return;
+
+  showLightboxImage(
+    (lightboxIndex + step + lightboxGroup.length) % lightboxGroup.length
+  );
+};
+
+const openLightbox = (trigger) => {
+  if (!lightbox?.showModal || !lightboxImage) return;
+
+  const gallery = trigger.closest("[data-gallery]");
+
+  lightboxGroup = gallery
+    ? [...gallery.querySelectorAll(".lightbox-trigger")]
+    : [trigger];
+
+  const multiple = lightboxGroup.length > 1;
+
+  if (lightboxPrev) lightboxPrev.hidden = !multiple;
+  if (lightboxNext) lightboxNext.hidden = !multiple;
+
+  showLightboxImage(lightboxGroup.indexOf(trigger));
 
   lightboxScrollPosition = window.scrollY;
 
@@ -132,6 +178,33 @@ lightboxTriggers.forEach((trigger) => {
 });
 
 lightboxClose?.addEventListener("click", closeLightbox);
+lightboxPrev?.addEventListener("click", () => stepLightbox(-1));
+lightboxNext?.addEventListener("click", () => stepLightbox(1));
+
+lightbox?.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") stepLightbox(-1);
+  if (event.key === "ArrowRight") stepLightbox(1);
+});
+
+// Přejetí prstem doleva / doprava listuje fotky.
+let lightboxTouchX = null;
+
+lightbox?.addEventListener(
+  "touchstart",
+  (event) => {
+    lightboxTouchX = event.touches.length === 1 ? event.touches[0].clientX : null;
+  },
+  { passive: true }
+);
+
+lightbox?.addEventListener("touchend", (event) => {
+  if (lightboxTouchX === null) return;
+
+  const distance = event.changedTouches[0].clientX - lightboxTouchX;
+  lightboxTouchX = null;
+
+  if (Math.abs(distance) > 50) stepLightbox(distance < 0 ? 1 : -1);
+});
 
 lightboxImage?.addEventListener(
   "wheel",
